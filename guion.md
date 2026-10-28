@@ -1,5 +1,8 @@
 # Guion de Charla: Dándole "manos" a tu IA con Chrome DevTools MCP
 
+> Sincronizado desde Google Doc `1R0kDD_OyWNTNH0bUu537rv8Z4zmUrAfvgPgsB3_eJPk`
+> (Guion Charla DevFest - Dándole manos a tu IA con Chrome DevTools MCP)
+
 ## 1. La Intro y el Rompehielos (El gancho)
 "Muy buenas a todos. Para arrancar esta charla, quiero llevarlos un momento a junio de este año. Viajé a Berlín para asistir al Google I/O Connect. Mientras paseaba por allí, me acerqué al stand del equipo del ecosistema de Google Chrome y tenían una demo montada en directo que me llamó muchísimo la atención: era el **Chrome DevTools for Agents MCP**.
 
@@ -16,19 +19,10 @@ Imaginen un modelo de lenguaje, por muy potente que sea, como un cerebro en un f
 
 Igual que ustedes usan un cable USB-C para conectar un monitor, un disco duro o un móvil a su portátil con el mismo puerto, el MCP es un puerto estándar que permite conectar un modelo de IA a sus bases de datos, a sus archivos locales, o en este caso, **directamente a su navegador**."
 
-## 3. Las dos grandes comparativas (El valor técnico)
-
-### Chrome DevTools MCP vs. Agentes Visuales (Computer Use)
-"Ahora mismo, si quieren automatizar un navegador con IA, pueden usar agentes de 'Computer Use', esos que levantan una máquina virtual y mueven el ratón. ¿Cuál es el problema de eso? Que el agente solo 'mira la pantalla'. Si la página carga y el botón se ve, el agente te dirá: *'Todo guay, test superado'*. Pero es ciego a lo que pasa por debajo.
+## 3. Chrome DevTools MCP vs. Agentes Visuales (Computer Use)
+"Ahora mismo, si quieren automatizar un navegador con IA, pueden usar agentes de 'Computer Use', esos que levantan una máquina virtual y mueven el ratón. ¿Cuál es el problema de eso? Que el agente solo 'mira la pantalla'. Si la página carga y el botón se ve, el agente les dirá: *'Todo guay, test superado'*. Pero es ciego a lo que pasa por debajo.
 
 El **Chrome DevTools MCP** no usa los ojos, se conecta directamente al sistema nervioso del navegador: el *Chrome DevTools Protocol (CDP)*. Esto significa que la IA puede leer la consola de JavaScript en tiempo real, ver si una petición de red ha dado un error 500 silencioso o leer las variables ocultas del DOM. Es un desarrollador auditando, no un usuario mirando."
-
-### Chrome DevTools MCP vs. Playwright MCP
-"Y los que hacen QA me dirán: *'Miguel, para eso ya tengo Playwright o Cypress'*.
-
-Es cierto que existe un MCP de Playwright, pero Playwright es un framework de testing rígido, pensado para aserciones (pasa o falla) basado en selectores CSS que se rompen en cuanto el diseñador cambia un botón.
-
-El Chrome DevTools MCP no tiene esa capa de abstracción. Va directamente a las herramientas de desarrollo nativas de Chrome. Permite un testing *agéntico*, donde la IA navega de forma resiliente, adaptándose a los cambios de la UI y depurando como lo haríamos nosotros con el F12 abierto."
 
 ## 4. Las Live-Demos (La acción)
 "Pero como esto se entiende mejor viéndolo, vamos a ensuciarnos las manos. Voy a usar Cursor, mi editor, conectado por MCP al navegador de Chrome para hacer 3 cosas en directo:
@@ -36,8 +30,6 @@ El Chrome DevTools MCP no tiene esa capa de abstracción. Va directamente a las 
 *   **Demo 1: El Test QA con Analítica.** Le voy a pedir a Cursor: *'Navega a esta landing en localhost, rellena el formulario de contacto con datos realistas y verifica que en el window.dataLayer se ha registrado perfectamente el evento de Google Analytics'*. Nada de selectores frágiles, puro lenguaje natural.
 *   **Demo 2: Auditoría de Accesibilidad (a11y).** Le diré al agente: *'Pásame un reporte de contraste de colores y comprueba si falta alguna etiqueta ARIA en la página actual'*. Van a ver cómo la IA audita el DOM profundo y nos devuelve los errores.
 *   **Demo 3: Debugging de Red.** Voy a simular un fallo en la API y le pediré al agente: *'Haz el flujo de compra y avísame si ves algún error en las peticiones de red o en la consola'*. La IA interceptará el tráfico de red nativo de DevTools."
-
-*(Aquí se ejecutan las demos en Cursor interactuando con el público)*
 
 ## 5. El Cierre y el "Caballo de Troya" (La inspiración)
 "Y bueno, para terminar, quiero volver un momento a esa historia del principio, a ese viaje a Berlín.

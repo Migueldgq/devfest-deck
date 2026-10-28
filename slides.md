@@ -123,13 +123,13 @@ transition: slide-left
 
 <ol class="agenda">
   <li v-click><span>01</span>Qué es un MCP</li>
-  <li v-click><span>02</span>Dos comparativas</li>
+  <li v-click><span>02</span>Computer Use vs DevTools</li>
   <li v-click><span>03</span>Tres demos en Cursor</li>
   <li v-click><span>04</span>Por qué estamos en esta sala</li>
 </ol>
 
 <!--
-Vamos al lío. Primero, qué es un MCP. Después, contra qué se compara. Luego lo vemos en el navegador. Y al final, por qué les he contado lo de Berlín.
+Vamos al lío. Primero, qué es un MCP. Después, Computer Use frente a Chrome DevTools MCP. Luego lo vemos en el navegador. Y al final, por qué les he contado lo de Berlín.
 -->
 
 ---
@@ -203,12 +203,12 @@ transition: fade
 
 <p class="index blue">02</p>
 
-# Dos comparativas
+# Computer Use no basta
 
-<p v-click>Computer Use mira. Playwright afirma. Este protocolo depura.</p>
+<p v-click>Mira la pantalla. Este protocolo lee el navegador.</p>
 
 <!--
-Ahora el valor técnico. Hay dos formas habituales de automatizar un navegador con IA, y las dos se quedan cortas para lo que vamos a ver.
+Ahora el valor técnico. Si automatizan con Computer Use, el agente solo mira. Chrome DevTools MCP se conecta al CDP.
 -->
 
 ---
@@ -241,7 +241,7 @@ transition: slide-left
 </div>
 
 <!--
-Computer Use levanta una máquina virtual y mueve el ratón. El agente solo mira la pantalla. Si la página carga y el botón se ve, dice: todo guay, test superado. Pero es ciego a lo que pasa por debajo.
+Computer Use levanta una máquina virtual y mueve el ratón. El agente solo mira la pantalla. Si la página carga y el botón se ve, les dirá: todo guay, test superado. Pero es ciego a lo que pasa por debajo.
 Chrome DevTools MCP no usa los ojos. Se conecta al sistema nervioso del navegador: el Chrome DevTools Protocol. Lee la consola en tiempo real, ve un 500 silencioso y las variables ocultas del DOM.
 -->
 
@@ -254,41 +254,6 @@ transition: fade
 
 <!--
 Esa es la diferencia. No es un usuario mirando una pantalla. Es un desarrollador con el F12 abierto.
--->
-
----
-transition: slide-left
----
-
-<div class="kicker">Comparativa</div>
-
-# «Para eso ya tengo Playwright»
-
-<div class="vs">
-  <article v-click>
-    <p class="who">Playwright MCP</p>
-    <h2>Pasa o falla</h2>
-    <ul>
-      <li>Aserciones rígidas</li>
-      <li>Selectores CSS</li>
-      <li>Se rompe si cambia el botón</li>
-    </ul>
-  </article>
-  <article v-click class="focus">
-    <p class="who">Chrome DevTools MCP</p>
-    <h2>Se adapta</h2>
-    <ul>
-      <li>Sin esa capa de abstracción</li>
-      <li>Herramientas nativas de Chrome</li>
-      <li>Navega y depura con el F12</li>
-    </ul>
-  </article>
-</div>
-
-<!--
-Los que hacen QA dirán: Miguel, para eso ya tengo Playwright o Cypress.
-Existe un MCP de Playwright, pero es un framework de testing rígido: pasa o falla, con selectores CSS que se rompen cuando el diseñador cambia un botón.
-Chrome DevTools MCP no tiene esa capa. Va a las herramientas nativas de Chrome. Testing agéntico: la IA se adapta a la UI y depura como lo haríamos nosotros con el F12 abierto.
 -->
 
 ---
