@@ -504,3 +504,79 @@
   line-height: 1.12;
   letter-spacing: -0.03em;
 }
+
+/* Memes — keep phone/stage layouts tight */
+.meme {
+  display: block;
+  width: auto;
+  max-width: min(100%, 520px);
+  max-height: 280px;
+  margin: 18px auto 0;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.meme-sm {
+  max-width: min(100%, 360px);
+  max-height: 160px;
+  margin-top: 14px;
+}
+
+.meme-brain {
+  max-height: 240px;
+  margin: 0;
+  border: none;
+  background: transparent;
+}
+
+.meme-fine {
+  max-height: 150px;
+  max-width: min(100%, 420px);
+}
+
+.meme-pika {
+  max-height: 170px;
+  max-width: min(100%, 280px);
+}
+
+.meme-cmm {
+  max-height: 420px;
+  max-width: min(100%, 640px);
+  margin: 0 auto;
+}
+
+.split-meme {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.split-meme .punch {
+  margin-top: 14px;
+}
+
+.slidev-layout.center.meme-slide {
+  padding: 36px 48px;
+}
+
+@media (max-width: 720px) {
+  .split-meme {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .meme,
+  .meme-cmm,
+  .meme-brain {
+    max-height: 200px;
+  }
+
+  .meme-fine,
+  .meme-pika {
+    max-height: 130px;
+  }
+}

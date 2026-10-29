@@ -155,9 +155,13 @@ transition: slide-left
 
 # Un cerebro en un frasco
 
-<p v-click>Sabe mucho. Razona bien.</p>
-
-<p v-click class="punch">No tiene manos.</p>
+<div class="split-meme">
+  <div>
+    <p v-click>Sabe mucho. Razona bien.</p>
+    <p v-click class="punch">No tiene manos.</p>
+  </div>
+  <img v-click class="meme meme-brain" src="/memes/brain-jar.png" alt="Cerebro en un frasco: un LLM sin manos" />
+</div>
 
 <!--
 Imaginen un modelo, por muy potente que sea, como un cerebro en un frasco.
@@ -240,9 +244,12 @@ transition: slide-left
   </article>
 </div>
 
+<img v-click class="meme meme-fine" src="/memes/this-is-fine.png" alt="This is fine: todo guay, test superado" />
+
 <!--
 Computer Use levanta una máquina virtual y mueve el ratón. El agente solo mira la pantalla. Si la página carga y el botón se ve, les dirá: todo guay, test superado. Pero es ciego a lo que pasa por debajo.
 Chrome DevTools MCP no usa los ojos. Se conecta al sistema nervioso del navegador: el Chrome DevTools Protocol. Lee la consola en tiempo real, ve un 500 silencioso y las variables ocultas del DOM.
+Click: meme This is fine — Computer Use aprueba mientras arde por debajo.
 -->
 
 ---
@@ -317,9 +324,12 @@ transition: slide-left
 
 <p v-click class="hint">Antes de pedirlo, simular un fallo en la API. Qué tiene que verse: el error de red o de consola.</p>
 
+<img v-click class="meme meme-pika" src="/memes/pikachu-500.png" alt="Surprised Pikachu: la UI perfecta, Network 500" />
+
 <!--
 Demo 3. Debugging de red.
 Primero simulo un fallo en la API. Luego el prompt. La IA intercepta el tráfico nativo de DevTools, no una captura de pantalla.
+Click final: Pikachu — payoff del 500 escondido.
 -->
 
 ---
@@ -354,6 +364,19 @@ transition: slide-left
 Quiero que se vayan con más ganas de seguir viniendo a eventos como este DevFest.
 Estudiar es la base. Lo que de verdad nos da el impulso, lo que nos saca del tutorial hell y nos hace descubrir cosas, es movernos y hacer networking.
 El simple hecho de que estén aquí hoy ya dice muchísimo de ustedes.
+-->
+
+---
+layout: center
+transition: fade
+class: meme-slide
+---
+
+<img class="meme meme-cmm" src="/memes/change-my-mind-devfest.png" alt="Change my mind: ir a un DevFest antes que otro tutorial" />
+
+<!--
+Beat cómico del cierre. Ir a un DevFest > otro tutorial de YouTube.
+Volver a la sala: el hecho de estar aquí ya cuenta.
 -->
 
 ---
