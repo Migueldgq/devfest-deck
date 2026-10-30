@@ -196,10 +196,10 @@ transition: fade
 class: meme-slide
 ---
 
-<p class="emoji-brain" aria-label="Cerebro">🧠</p>
+<img class="meme meme-solo" src="/memes/brain-jar.png" alt="Cerebro de Apple en un frasco: LLM sin manos" />
 
 <!--
-Beat visual: cerebro sin manos. El MCP existe para darle herramientas.
+Beat visual: cerebro (Apple emoji) en el frasco, sin manos. El MCP existe para darle herramientas.
 -->
 
 ---
