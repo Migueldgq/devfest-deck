@@ -505,6 +505,44 @@
   letter-spacing: -0.03em;
 }
 
+/* Event photos — Berlin / I/O Connect strip */
+.event-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+  height: min(48vh, 420px);
+}
+
+.event-strip figure {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.event-strip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 720px) {
+  .event-strip {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 10px;
+  }
+
+  .event-strip figure {
+    height: 160px;
+  }
+}
+
 /* Memes — keep phone/stage layouts tight */
 .meme {
   display: block;

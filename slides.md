@@ -69,6 +69,31 @@ Tenían una demo en directo que me llamó muchísimo la atención: Chrome DevToo
 -->
 
 ---
+transition: fade
+---
+
+<div class="kicker">Junio · Berlín</div>
+
+# Estaba allí.
+
+<div class="event-strip">
+  <figure v-click>
+    <img src="/event/io-connect-3.jpg" alt="Patio con el cartel #GoogleIOConnect" />
+  </figure>
+  <figure v-click>
+    <img src="/event/io-connect-2.jpg" alt="Miguel en Google I/O Connect con el Android arcoíris" />
+  </figure>
+  <figure v-click>
+    <img src="/event/io-connect-1.jpg" alt="Keynote Code en Google I/O Connect Berlín" />
+  </figure>
+</div>
+
+<!--
+Tres fotos del Google I/O Connect en Berlín: la entrada, yo en el evento, y la keynote.
+El stand de Chrome venía después — ahí vi la demo del MCP.
+-->
+
+---
 layout: statement
 transition: fade
 ---
