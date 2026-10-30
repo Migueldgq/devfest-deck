@@ -423,7 +423,7 @@ transition: fade
 class: meme-slide
 ---
 
-<img class="meme meme-cmm" src="/memes/change-my-mind-devfest.png" alt="Change my mind: ir a un DevFest antes que otro tutorial" />
+<img class="meme meme-solo" src="/memes/change-my-mind-devfest.png" alt="Change my mind: ir a un DevFest antes que otro tutorial" />
 
 <!--
 Beat cómico del cierre. Ir a un DevFest > otro tutorial de YouTube.
