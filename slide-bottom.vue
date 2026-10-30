@@ -7,6 +7,10 @@ const { $frontmatter, $page } = useSlideContext()
 const show = computed(() => {
   const layout = $frontmatter.layout as string | undefined
     ?? ($page.value === 1 ? 'cover' : 'default')
+  const klass = String($frontmatter.class ?? '')
+  // Solo meme/emoji slides: hide footer so the image owns the frame
+  if (klass.split(/\s+/).includes('meme-slide'))
+    return false
   return !['cover', 'section', 'statement', 'end'].includes(layout)
 })
 

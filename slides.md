@@ -180,18 +180,26 @@ transition: slide-left
 
 # Un cerebro en un frasco
 
-<div class="split-meme">
-  <div>
-    <p v-click>Sabe mucho. Razona bien.</p>
-    <p v-click class="punch">No tiene manos.</p>
-  </div>
-  <img v-click class="meme meme-brain" src="/memes/brain-jar.png" alt="Cerebro en un frasco: un LLM sin manos" />
-</div>
+<p v-click>Sabe mucho. Razona bien.</p>
+
+<p v-click class="punch">No tiene manos.</p>
 
 <!--
 Imaginen un modelo, por muy potente que sea, como un cerebro en un frasco.
 Sabe mucho, razona muy bien, pero está encerrado en una caja de texto. No tiene manos.
 El MCP existe para darle herramientas.
+-->
+
+---
+layout: center
+transition: fade
+class: meme-slide
+---
+
+<p class="emoji-brain" aria-label="Cerebro">🧠</p>
+
+<!--
+Beat visual: cerebro sin manos. El MCP existe para darle herramientas.
 -->
 
 ---
@@ -269,12 +277,21 @@ transition: slide-left
   </article>
 </div>
 
-<img v-click class="meme meme-fine" src="/memes/this-is-fine.png" alt="This is fine: todo guay, test superado" />
-
 <!--
 Computer Use levanta una máquina virtual y mueve el ratón. El agente solo mira la pantalla. Si la página carga y el botón se ve, les dirá: todo guay, test superado. Pero es ciego a lo que pasa por debajo.
 Chrome DevTools MCP no usa los ojos. Se conecta al sistema nervioso del navegador: el Chrome DevTools Protocol. Lee la consola en tiempo real, ve un 500 silencioso y las variables ocultas del DOM.
-Click: meme This is fine — Computer Use aprueba mientras arde por debajo.
+-->
+
+---
+layout: center
+transition: fade
+class: meme-slide
+---
+
+<img class="meme meme-solo" src="/memes/this-is-fine.png" alt="This is fine: todo guay, test superado" />
+
+<!--
+This is fine — Computer Use aprueba mientras arde por debajo.
 -->
 
 ---
@@ -349,12 +366,21 @@ transition: slide-left
 
 <p v-click class="hint">Antes de pedirlo, simular un fallo en la API. Qué tiene que verse: el error de red o de consola.</p>
 
-<img v-click class="meme meme-pika" src="/memes/pikachu-500.png" alt="Surprised Pikachu: la UI perfecta, Network 500" />
-
 <!--
 Demo 3. Debugging de red.
 Primero simulo un fallo en la API. Luego el prompt. La IA intercepta el tráfico nativo de DevTools, no una captura de pantalla.
-Click final: Pikachu — payoff del 500 escondido.
+-->
+
+---
+layout: center
+transition: fade
+class: meme-slide
+---
+
+<img class="meme meme-solo" src="/memes/pikachu-500.png" alt="Surprised Pikachu: la UI perfecta, Network 500" />
+
+<!--
+Payoff del 500 escondido: la UI perfecta, Network 500.
 -->
 
 ---

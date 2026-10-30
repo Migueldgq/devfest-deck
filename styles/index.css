@@ -505,18 +505,25 @@
   letter-spacing: -0.03em;
 }
 
-/* Event photos — Berlin / I/O Connect strip */
+/* Event photos — keep clear of deck-footer + page index */
+.slidev-layout.default:has(.event-strip) {
+  padding-bottom: 92px;
+}
+
 .event-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 10px;
-  height: min(48vh, 420px);
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  height: 240px;
+  max-height: 240px;
 }
 
 .event-strip figure {
   margin: 0;
   height: 100%;
+  min-height: 0;
   overflow: hidden;
   border-radius: 12px;
   border: 1px solid var(--line);
@@ -535,86 +542,52 @@
   .event-strip {
     grid-template-columns: 1fr;
     height: auto;
+    max-height: none;
     gap: 10px;
   }
 
   .event-strip figure {
-    height: 160px;
+    height: 140px;
   }
 }
 
-/* Memes — keep phone/stage layouts tight */
+/* Solo meme / emoji slides */
+.slidev-layout.center.meme-slide {
+  padding: 40px 56px 88px;
+}
+
 .meme {
   display: block;
   width: auto;
-  max-width: min(100%, 520px);
-  max-height: 280px;
-  margin: 18px auto 0;
+  max-width: min(100%, 680px);
+  max-height: min(68vh, 460px);
+  margin: 0 auto;
   object-fit: contain;
   border-radius: 12px;
   border: 1px solid var(--line);
   background: rgba(0, 0, 0, 0.25);
 }
 
-.meme-sm {
-  max-width: min(100%, 360px);
-  max-height: 160px;
-  margin-top: 14px;
+.meme-solo {
+  max-width: min(100%, 720px);
+  max-height: min(70vh, 480px);
 }
 
-.meme-brain {
-  max-height: 240px;
+.emoji-brain {
   margin: 0;
-  border: none;
-  background: transparent;
-}
-
-.meme-fine {
-  max-height: 150px;
-  max-width: min(100%, 420px);
-}
-
-.meme-pika {
-  max-height: 170px;
-  max-width: min(100%, 280px);
-}
-
-.meme-cmm {
-  max-height: 420px;
-  max-width: min(100%, 640px);
-  margin: 0 auto;
-}
-
-.split-meme {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 28px;
-  align-items: center;
-  margin-top: 8px;
-}
-
-.split-meme .punch {
-  margin-top: 14px;
-}
-
-.slidev-layout.center.meme-slide {
-  padding: 36px 48px;
+  font-size: clamp(140px, 28vw, 260px);
+  line-height: 1;
+  text-align: center;
+  filter: drop-shadow(0 12px 40px rgba(66, 133, 244, 0.28));
 }
 
 @media (max-width: 720px) {
-  .split-meme {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
   .meme,
-  .meme-cmm,
-  .meme-brain {
-    max-height: 200px;
+  .meme-solo {
+    max-height: 52vh;
   }
 
-  .meme-fine,
-  .meme-pika {
-    max-height: 130px;
+  .emoji-brain {
+    font-size: clamp(96px, 36vw, 160px);
   }
 }
