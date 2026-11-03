@@ -1,5 +1,8 @@
 # Guion de Charla: Dándole "manos" a tu IA con Chrome DevTools MCP
 
+> Sincronizado desde Google Doc `1R0kDD_OyWNTNH0bUu537rv8Z4zmUrAfvgPgsB3_eJPk`
+> (Guion Charla DevFest - Dándole manos a tu IA con Chrome DevTools MCP)
+
 ## 1. La Intro y el Rompehielos (El gancho)
 
 "Muy buenas a todos. Para arrancar esta charla, quiero llevarlos un momento a junio de este año. Viajé a Berlín para asistir al Google I/O Connect. Mientras paseaba por allí, me acerqué al stand del equipo del ecosistema de Google Chrome y tenían una demo montada en directo que me llamó muchísimo la atención: era el **Chrome DevTools for Agents MCP**.
