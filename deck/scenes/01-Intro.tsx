@@ -92,61 +92,52 @@ function Intro_() {
               display: 'grid',
               gridTemplateColumns: '1fr 1.35fr 1fr',
               gap: 28,
-              marginTop: 20,
+              marginTop: 24,
             }}
           >
-            <div className="stage-card" style={{ padding: 14 }}>
+            <div className="stage-card" style={{ padding: 12 }}>
               <img
                 src={ioEntrance}
-                alt="Entrada de Google I/O Connect en Berlín"
+                alt="Google I/O Connect Berlín"
                 style={{
                   width: '100%',
-                  height: 330,
+                  height: 390,
                   objectFit: 'cover',
                   objectPosition: 'center 36%',
                   borderRadius: 10,
                   display: 'block',
                 }}
               />
-              <div className="t-meta" style={{ fontSize: 18, marginTop: 10, color: 'var(--ink-2)' }}>
-                01 // BERLÍN · RECINTO #GOOGLEIOCONNECT
-              </div>
             </div>
 
-            <div className="stage-card hot" style={{ padding: 14 }}>
+            <div className="stage-card hot" style={{ padding: 12 }}>
               <img
                 src={ioStage}
-                alt="Escenario principal de Google I/O Connect Berlín"
+                alt="Google I/O Connect Berlín"
                 style={{
                   width: '100%',
-                  height: 330,
+                  height: 390,
                   objectFit: 'cover',
                   objectPosition: 'center center',
                   borderRadius: 10,
                   display: 'block',
                 }}
               />
-              <div className="t-meta" style={{ fontSize: 18, marginTop: 10, color: 'var(--g-yellow)' }}>
-                02 // ESCENARIO Y STAND DE GOOGLE CHROME
-              </div>
             </div>
 
-            <div className="stage-card" style={{ padding: 14 }}>
+            <div className="stage-card" style={{ padding: 12 }}>
               <img
                 src={ioMiguel}
-                alt="Miguel García en Google I/O Connect Berlín"
+                alt="Google I/O Connect Berlín"
                 style={{
                   width: '100%',
-                  height: 330,
+                  height: 390,
                   objectFit: 'cover',
                   objectPosition: 'center 38%',
                   borderRadius: 10,
                   display: 'block',
                 }}
               />
-              <div className="t-meta" style={{ fontSize: 18, marginTop: 10, color: 'var(--ink-2)' }}>
-                03 // DONDE SURGIÓ LA IDEA DE ESTA CHARLA
-              </div>
             </div>
           </div>
         </div>
