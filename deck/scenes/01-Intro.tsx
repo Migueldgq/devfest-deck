@@ -75,18 +75,16 @@ function Intro_() {
       </Reveal>
 
       {/* Beat 2: Junio · Berlín — Google I/O Connect Photos + Live Demo Diagram */}
-      <Reveal on={here && b === 2} out={here && b > 2} x={140} y={85}>
+      <Reveal on={here && b === 2} out={here && b > 2} x={140} y={80}>
         <div style={{ width: 1640 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
-              <div className="kicker-pill">Junio · Berlín</div>
-              <div className="t-statement" style={{ fontSize: 76 }}>
-                Google I/O Connect
-              </div>
+            <div className="kicker-pill">Junio · Berlín</div>
+            <div className="t-meta" style={{ fontSize: 20, color: 'var(--ink-2)' }}>
+              STAND DEL ECOSISTEMA DE GOOGLE CHROME · DEMO EN DIRECTO
             </div>
-            <div className="t-editorial" style={{ fontSize: 30, color: 'var(--ink-2)' }}>
-              Stand del ecosistema de Google Chrome · Demo en directo
-            </div>
+          </div>
+          <div className="t-statement" style={{ fontSize: 72, marginTop: 14 }}>
+            Google I/O Connect
           </div>
 
           <div
@@ -94,59 +92,59 @@ function Intro_() {
               display: 'grid',
               gridTemplateColumns: '1fr 1.35fr 1fr',
               gap: 28,
-              marginTop: 26,
+              marginTop: 20,
             }}
           >
-            <div className="stage-card" style={{ padding: 16 }}>
+            <div className="stage-card" style={{ padding: 14 }}>
               <img
                 src={ioEntrance}
                 alt="Entrada de Google I/O Connect en Berlín"
                 style={{
                   width: '100%',
-                  height: 360,
+                  height: 330,
                   objectFit: 'cover',
                   objectPosition: 'center 36%',
                   borderRadius: 10,
                   display: 'block',
                 }}
               />
-              <div className="t-meta" style={{ fontSize: 18, marginTop: 12, color: 'var(--ink-2)' }}>
+              <div className="t-meta" style={{ fontSize: 18, marginTop: 10, color: 'var(--ink-2)' }}>
                 01 // BERLÍN · RECINTO #GOOGLEIOCONNECT
               </div>
             </div>
 
-            <div className="stage-card hot" style={{ padding: 16 }}>
+            <div className="stage-card hot" style={{ padding: 14 }}>
               <img
                 src={ioStage}
                 alt="Escenario principal de Google I/O Connect Berlín"
                 style={{
                   width: '100%',
-                  height: 360,
+                  height: 330,
                   objectFit: 'cover',
                   objectPosition: 'center center',
                   borderRadius: 10,
                   display: 'block',
                 }}
               />
-              <div className="t-meta" style={{ fontSize: 18, marginTop: 12, color: 'var(--g-yellow)' }}>
+              <div className="t-meta" style={{ fontSize: 18, marginTop: 10, color: 'var(--g-yellow)' }}>
                 02 // ESCENARIO Y STAND DE GOOGLE CHROME
               </div>
             </div>
 
-            <div className="stage-card" style={{ padding: 16 }}>
+            <div className="stage-card" style={{ padding: 14 }}>
               <img
                 src={ioMiguel}
                 alt="Miguel García en Google I/O Connect Berlín"
                 style={{
                   width: '100%',
-                  height: 360,
+                  height: 330,
                   objectFit: 'cover',
                   objectPosition: 'center 38%',
                   borderRadius: 10,
                   display: 'block',
                 }}
               />
-              <div className="t-meta" style={{ fontSize: 18, marginTop: 12, color: 'var(--ink-2)' }}>
+              <div className="t-meta" style={{ fontSize: 18, marginTop: 10, color: 'var(--ink-2)' }}>
                 03 // DONDE SURGIÓ LA IDEA DE ESTA CHARLA
               </div>
             </div>
