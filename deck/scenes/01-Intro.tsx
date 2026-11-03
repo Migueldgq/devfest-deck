@@ -1,9 +1,12 @@
 import { Arrow, NodeBox, Reveal, Scene, useScene, type Rect } from 'beatdeck';
+import ioStage from '../assets/event/io-connect-1.jpg';
+import ioMiguel from '../assets/event/io-connect-2.jpg';
+import ioEntrance from '../assets/event/io-connect-3.jpg';
 import { config } from '../deck.config';
 
-const BOOTH_NODE: Rect = { x: 140, y: 560, w: 460, h: 150 };
-const AGENT_NODE: Rect = { x: 730, y: 560, w: 460, h: 150 };
-const CHROME_NODE: Rect = { x: 1320, y: 560, w: 460, h: 150 };
+const BOOTH_NODE: Rect = { x: 140, y: 745, w: 460, h: 140 };
+const AGENT_NODE: Rect = { x: 730, y: 745, w: 460, h: 140 };
+const CHROME_NODE: Rect = { x: 1320, y: 745, w: 460, h: 140 };
 
 function Intro_() {
   const { here, b } = useScene();
@@ -71,15 +74,82 @@ function Intro_() {
         </div>
       </Reveal>
 
-      {/* Beat 2: Junio · Berlín — Google I/O Connect + Live Demo Diagram */}
-      <Reveal on={here && b === 2} out={here && b > 2} x={140} y={130}>
+      {/* Beat 2: Junio · Berlín — Google I/O Connect Photos + Live Demo Diagram */}
+      <Reveal on={here && b === 2} out={here && b > 2} x={140} y={85}>
         <div style={{ width: 1640 }}>
-          <div className="kicker-pill">Junio · Berlín</div>
-          <div className="t-statement" style={{ fontSize: 112, marginTop: 28 }}>
-            Google I/O Connect
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
+              <div className="kicker-pill">Junio · Berlín</div>
+              <div className="t-statement" style={{ fontSize: 76 }}>
+                Google I/O Connect
+              </div>
+            </div>
+            <div className="t-editorial" style={{ fontSize: 30, color: 'var(--ink-2)' }}>
+              Stand del ecosistema de Google Chrome · Demo en directo
+            </div>
           </div>
-          <div className="t-editorial" style={{ fontSize: 44, color: 'var(--ink-2)', marginTop: 28, maxWidth: 1400 }}>
-            Stand del ecosistema de Google Chrome. Una demo montada en directo que lo cambiaba todo:
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1.35fr 1fr',
+              gap: 28,
+              marginTop: 26,
+            }}
+          >
+            <div className="stage-card" style={{ padding: 16 }}>
+              <img
+                src={ioEntrance}
+                alt="Entrada de Google I/O Connect en Berlín"
+                style={{
+                  width: '100%',
+                  height: 360,
+                  objectFit: 'cover',
+                  objectPosition: 'center 36%',
+                  borderRadius: 10,
+                  display: 'block',
+                }}
+              />
+              <div className="t-meta" style={{ fontSize: 18, marginTop: 12, color: 'var(--ink-2)' }}>
+                01 // BERLÍN · RECINTO #GOOGLEIOCONNECT
+              </div>
+            </div>
+
+            <div className="stage-card hot" style={{ padding: 16 }}>
+              <img
+                src={ioStage}
+                alt="Escenario principal de Google I/O Connect Berlín"
+                style={{
+                  width: '100%',
+                  height: 360,
+                  objectFit: 'cover',
+                  objectPosition: 'center center',
+                  borderRadius: 10,
+                  display: 'block',
+                }}
+              />
+              <div className="t-meta" style={{ fontSize: 18, marginTop: 12, color: 'var(--g-yellow)' }}>
+                02 // ESCENARIO Y STAND DE GOOGLE CHROME
+              </div>
+            </div>
+
+            <div className="stage-card" style={{ padding: 16 }}>
+              <img
+                src={ioMiguel}
+                alt="Miguel García en Google I/O Connect Berlín"
+                style={{
+                  width: '100%',
+                  height: 360,
+                  objectFit: 'cover',
+                  objectPosition: 'center 38%',
+                  borderRadius: 10,
+                  display: 'block',
+                }}
+              />
+              <div className="t-meta" style={{ fontSize: 18, marginTop: 12, color: 'var(--ink-2)' }}>
+                03 // DONDE SURGIÓ LA IDEA DE ESTA CHARLA
+              </div>
+            </div>
           </div>
         </div>
       </Reveal>
@@ -91,20 +161,20 @@ function Intro_() {
         rect={BOOTH_NODE}
         on={here && b === 2}
         kind="stand en directo · berlín"
-        value={<span style={{ fontSize: 26 }}>Prompt en lenguaje natural</span>}
+        value={<span style={{ fontSize: 25 }}>Prompt en lenguaje natural</span>}
       />
       <NodeBox
         rect={AGENT_NODE}
         on={here && b === 2}
         tone="hot"
         kind="el descubrimiento"
-        value={<span style={{ fontSize: 26, color: 'var(--g-yellow)' }}>Chrome DevTools MCP</span>}
+        value={<span style={{ fontSize: 25, color: 'var(--g-yellow)' }}>Chrome DevTools MCP</span>}
       />
       <NodeBox
         rect={CHROME_NODE}
         on={here && b === 2}
         kind="navegador real"
-        value={<span style={{ fontSize: 26 }}>Testeo profundo en vivo</span>}
+        value={<span style={{ fontSize: 25 }}>Testeo profundo en vivo</span>}
       />
 
       {/* Beat 3: Statement — Me explotó la cabeza */}
