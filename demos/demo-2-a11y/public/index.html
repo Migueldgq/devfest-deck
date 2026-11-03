@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Studio · Design Token Manager</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top Navigation / Toolbar -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Lumina Studio</span>
+        <span class="brand-tag">Design Token Manager v2.4</span>
+      </div>
+
+      <!-- INTENTIONAL A11Y BUG: Icon-only buttons with NO aria-label, NO title, and NO visible text -->
+      <div class="toolbar-actions">
+        <button class="icon-btn" id="btn-quick-search" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="icon-btn" id="btn-notifications" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+        <button class="icon-btn" id="btn-settings" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <button class="icon-btn danger-icon" id="btn-purge-cache" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+            <path d="M10 11v6"></path>
+            <path d="M14 11v6"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Hero / Analytics Summary -->
+      <section class="hero-card">
+        <div class="hero-copy">
+          <span class="status-pill">SINCRONIZACIÓN EN VIVO</span>
+          <h1>Sistema unificado de tokens de diseño para equipos de producto</h1>
+          <p class="low-contrast-description">
+            Gestiona colores, tipografías y espaciados desde una única fuente de verdad y publica paquetes versionados hacia Figma, CSS Variables e iOS/Android.
+          </p>
+          <div class="hero-cta-row">
+            <!-- INTENTIONAL A11Y BUG: Pastel text #e2e8f0 on bright amber #facc15 (~1.25:1 contrast) -->
+            <button class="btn-amber-low-contrast" id="btn-export-tokens" type="button">
+              Publicar Tokens a Producción
+            </button>
+            <span class="sync-meta">Último despliegue hace 14 minutos · 128 tokens activos</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- INTENTIONAL A11Y BUG: <img> missing alt attribute completely -->
+          <img
+            class="hero-chart"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='180' viewBox='0 0 360 180'%3E%3Crect width='360' height='180' rx='12' fill='%23f1f5f9'/%3E%3Cpath d='M24 140 L90 105 L155 120 L220 68 L285 84 L336 38' fill='none' stroke='%236366f1' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='90' cy='105' r='5' fill='%236366f1'/%3E%3Ccircle cx='220' cy='68' r='5' fill='%236366f1'/%3E%3Ccircle cx='336' cy='38' r='6' fill='%23f59e0b'/%3E%3Ctext x='24' y='34' font-family='sans-serif' font-size='12' fill='%2394a3b8'%3ECobertura de Tokens Sem%C3%A1nticos (94.2%25)%3C/text%3E%3C/svg%3E"
+          />
+        </div>
+      </section>
+
+      <!-- Filter & Billing Bar -->
+      <section class="controls-bar">
+        <div class="filter-group">
+          <!-- INTENTIONAL A11Y BUG: Inputs and selects without <label> or aria-label -->
+          <input
+            type="text"
+            id="token-filter-input"
+            class="filter-input"
+            placeholder="Filtrar tokens..."
+          />
+
+          <select id="category-select" class="filter-select">
+            <option value="all">Todas las categorías</option>
+            <option value="color">Colores semánticos</option>
+            <option value="surface">Superficies</option>
+            <option value="typography">Tipografía</option>
+          </select>
+        </div>
+
+        <div class="billing-toggle-wrap">
+          <span class="billing-label">Facturación anual (-20%)</span>
+          <!-- INTENTIONAL A11Y BUG: Non-semantic div toggle missing role="switch", aria-checked, tabindex, aria-label -->
+          <div class="toggle-switch" id="billing-toggle" onclick="toggleBilling()">
+            <div class="toggle-knob"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Plans & Token Packages Grid -->
+      <section class="plans-grid">
+        <article class="plan-card">
+          <div class="plan-header">
+            <h2>Starter Kit</h2>
+            <span class="badge-low-contrast">GRATIS</span>
+          </div>
+          <p class="price-tag"><span id="price-starter">$0</span> <small>/ mes</small></p>
+          <!-- INTENTIONAL A11Y BUG: Light gray #b8bfcc on #f8fafc (~1.7:1 contrast) -->
+          <p class="plan-description-low-contrast">
+            Ideal para proyectos personales. Incluye hasta 50 tokens base, exportación manual en JSON y sincronización semanal.
+          </p>
+          <ul class="plan-features-low-contrast">
+            <li>Hasta 2 bibliotecas de componentes</li>
+            <li>Exportación CSS Custom Properties</li>
+            <li>Historial de versiones de 7 días</li>
+          </ul>
+        </article>
+
+        <article class="plan-card featured">
+          <div class="plan-header">
+            <h2>Studio Pro</h2>
+            <span class="badge-low-contrast">POPULAR</span>
+          </div>
+          <p class="price-tag"><span id="price-pro">$29</span> <small>/ mes</small></p>
+          <!-- INTENTIONAL A11Y BUG: Light gray #b8bfcc on #f8fafc (~1.7:1 contrast) -->
+          <p class="plan-description-low-contrast">
+            Diseñado para equipos de diseño y frontend en crecimiento con pipelines CI/CD automatizados y auditoría visual.
+          </p>
+          <ul class="plan-features-low-contrast">
+            <li>Tokens ilimitados y modos claro/oscuro</li>
+            <li>Webhooks automáticos para GitHub Actions</li>
+            <li>Validación de tokens en Pull Requests</li>
+          </ul>
+        </article>
+
+        <article class="plan-card">
+          <div class="plan-header">
+            <h2>Enterprise Cloud</h2>
+            <span class="badge-low-contrast">CUSTOM</span>
+          </div>
+          <p class="price-tag"><span id="price-enterprise">$99</span> <small>/ mes</small></p>
+          <!-- INTENTIONAL A11Y BUG: Light gray #b8bfcc on #f8fafc (~1.7:1 contrast) -->
+          <p class="plan-description-low-contrast">
+            Gobernanza multi-marca con SSO SAML, control de permisos granular y soporte dedicado 24/7 con SLA garantizado.
+          </p>
+          <ul class="plan-features-low-contrast">
+            <li>Multi-tenancy y marcas ilimitadas</li>
+            <li>Registro de auditoría SOC2 Tipo II</li>
+            <li>Sincronización bidireccional con Figma REST API</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Token Registry Preview -->
+      <section class="tokens-section">
+        <div class="section-header">
+          <h2>Tokens del Sistema Activos</h2>
+          <span class="token-count" id="token-count-badge">4 tokens mostrados</span>
+        </div>
+        <div class="token-list" id="token-list">
+          <!-- Populated dynamically / filtered by app.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- INTENTIONAL A11Y BUG: Muted text #475569 on dark slate background #334155 (~1.5:1 contrast) -->
+    <footer class="app-footer">
+      <p class="footer-muted-text">
+        © 2026 Lumina Studio Inc. · Todos los derechos reservados · Cumplimiento parcial de estándares visuales · Estado del clúster: us-east-1 saludable.
+      </p>
+      <p class="footer-muted-text">
+        Nota legal: Las métricas de sincronización se actualizan cada 60 segundos. Soporte técnico disponible en horario laboral.
+      </p>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

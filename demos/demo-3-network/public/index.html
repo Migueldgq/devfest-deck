@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevFest Store · Checkout Oficial — Santiago de Compostela 2026</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-logo" aria-hidden="true">⚡</span>
+        <div>
+          <span class="brand-title">DevFest Santiago Store</span>
+          <span class="brand-subtitle">Checkout Oficial · Edición 2026</span>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <span class="security-badge" title="Conexión cifrada TLS 1.3">
+          🔒 Pago 100% Seguro
+        </span>
+        <button
+          type="button"
+          id="btn-toggle-bug"
+          class="bug-toggle-pill is-active"
+          aria-pressed="true"
+          title="Control de ponente: activa o desactiva el fallo HTTP 500 oculto en POST /api/checkout"
+        >
+          <span class="status-dot"></span>
+          <span id="bug-toggle-label">Simular fallo 500: ACTIVO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-layout">
+    <!-- Left Column: Checkout Steps & Form -->
+    <section class="checkout-column" aria-labelledby="checkout-heading">
+      <div class="stepper" aria-label="Progreso de compra">
+        <div class="step completed">
+          <span class="step-num">✓</span>
+          <span class="step-label">1. Carrito seleccionado</span>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step active" id="step-indicator-payment">
+          <span class="step-num">2</span>
+          <span class="step-label">2. Datos y Pago</span>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step" id="step-indicator-confirm">
+          <span class="step-num">3</span>
+          <span class="step-label">3. Confirmación</span>
+        </div>
+      </div>
+
+      <!-- Optimistic Green Banner (The Visual Trap: shows green success even on HTTP 500!) -->
+      <section
+        id="optimistic-success-banner"
+        class="optimistic-banner hidden"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="optimistic-icon" aria-hidden="true">✅</div>
+        <div class="optimistic-content">
+          <span class="optimistic-kicker">Confirmación de solicitud</span>
+          <h2 id="optimistic-title">
+            ¡Solicitud recibida! Estamos procesando tu pedido en segundo plano, recibirás un correo en breve.
+          </h2>
+          <p class="optimistic-meta">
+            Hemos registrado tu solicitud para <strong>DevFest Santiago 2026</strong> por un total de
+            <strong>48,00 €</strong>. No cierres ni recargues si deseas conservar este resumen visual.
+          </p>
+          <div class="optimistic-pills">
+            <span class="pill-success">Estado UI: Completado satisfactoriamente</span>
+            <span class="pill-neutral" id="optimistic-email-display">Correo: asistente@devfestsantiago.es</span>
+          </div>
+          <div class="optimistic-actions">
+            <button type="button" id="btn-reset-checkout" class="btn-secondary">
+              ← Volver al checkout (Reiniciar demo)
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Checkout Form Card -->
+      <div id="checkout-form-card" class="card">
+        <div class="card-header">
+          <div>
+            <h1 id="checkout-heading" class="card-title">Finalizar compra de entradas y merchandising</h1>
+            <p class="card-subtitle">
+              Completa tus datos de asistente o utiliza los valores preconfigurados para emitir tus pases.
+            </p>
+          </div>
+          <button type="button" id="btn-autofill" class="btn-ghost">
+            ✨ Autocompletar datos de prueba
+          </button>
+        </div>
+
+        <form id="checkout-form" novalidate>
+          <fieldset class="form-section">
+            <legend class="section-legend">1. Datos del Asistente</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="customer-name">Nombre completo</label>
+                <input
+                  type="text"
+                  id="customer-name"
+                  name="name"
+                  autocomplete="name"
+                  value="Ana Souto Varela"
+                  placeholder="Ej. Ana Souto Varela"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="customer-email">Correo electrónico (envío de QR)</label>
+                <input
+                  type="email"
+                  id="customer-email"
+                  name="email"
+                  autocomplete="email"
+                  value="ana.souto@devfestsantiago.es"
+                  placeholder="tu@correo.com"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="customer-company">Comunidad / Empresa</label>
+                <input
+                  type="text"
+                  id="customer-company"
+                  name="company"
+                  value="GDG Santiago de Compostela"
+                  placeholder="Opcional"
+                />
+              </div>
+              <div class="form-group">
+                <label for="shirt-size">Talla de sudadera (Pack Merch)</label>
+                <select id="shirt-size" name="shirtSize">
+                  <option value="S">Talla S · Unisex</option>
+                  <option value="M">Talla M · Unisex</option>
+                  <option value="L" selected>Talla L · Unisex</option>
+                  <option value="XL">Talla XL · Unisex</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend class="section-legend">2. Método de Pago (Pasarela Stripe Sandbox)</legend>
+            <div class="payment-method-box">
+              <div class="payment-method-header">
+                <span class="payment-radio-label">
+                  <input type="radio" name="paymentMethod" value="card" checked />
+                  Tarjeta de crédito o débito (Visa / Mastercard)
+                </span>
+                <span class="card-brands" aria-hidden="true">💳 VISA · MC · AMEX</span>
+              </div>
+
+              <div class="form-group">
+                <label for="card-number">Número de tarjeta</label>
+                <input
+                  type="text"
+                  id="card-number"
+                  name="cardNumber"
+                  inputmode="numeric"
+                  value="4242 •••• •••• 4242"
+                  placeholder="4242 4242 4242 4242"
+                  required
+                />
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="card-expiry">Fecha de caducidad</label>
+                  <input
+                    type="text"
+                    id="card-expiry"
+                    name="cardExpiry"
+                    value="11/28"
+                    placeholder="MM/AA"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="card-cvc">CVC / CVV</label>
+                  <input
+                    type="text"
+                    id="card-cvc"
+                    name="cardCvc"
+                    value="842"
+                    placeholder="123"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="terms-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="accept-terms" name="acceptTerms" checked />
+              <span>Acepto las condiciones de compra del DevFest Santiago 2026 y el código de conducta GDG.</span>
+            </label>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" id="btn-checkout-submit" class="btn-primary">
+              <span id="btn-submit-text">Confirmar y Pagar 48,00 €</span>
+              <span id="btn-submit-spinner" class="spinner hidden" aria-hidden="true"></span>
+            </button>
+            <p class="submit-helper">
+              Cargo inmediato de <strong>48,00 €</strong> (IVA incluido). Emisión instantánea de entradas.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Right Column: Order Summary -->
+    <aside class="summary-column" aria-labelledby="summary-heading">
+      <div class="card summary-card">
+        <div class="summary-header">
+          <h2 id="summary-heading" class="summary-title">Resumen del Pedido</h2>
+          <span class="cart-badge" id="cart-item-count">2 artículos</span>
+        </div>
+
+        <ul id="cart-items-list" class="cart-list">
+          <li class="cart-item">
+            <div class="cart-item-info">
+              <span class="item-badge">Ticket Oficial</span>
+              <h3 class="item-name">Entrada General + Acceso Workshops · DevFest Santiago 2026</h3>
+              <p class="item-desc">Acceso completo a charlas, track de IA/Web, networking y comida gallega.</p>
+              <span class="item-sku">SKU: DEVFEST-VIP-2026 · Cant: 1</span>
+            </div>
+            <div class="cart-item-price">25,00 €</div>
+          </li>
+          <li class="cart-item">
+            <div class="cart-item-info">
+              <span class="item-badge badge-merch">Edición Limitada</span>
+              <h3 class="item-name">Pack Merchandising Oficial GDG Santiago</h3>
+              <p class="item-desc">Sudadera bordada edición limitada + Pack de pegatinas Chrome DevTools &amp; Gemini.</p>
+              <span class="item-sku">SKU: GDG-MERCH-PACK-26 · Cant: 1</span>
+            </div>
+            <div class="cart-item-price">23,00 €</div>
+          </li>
+        </ul>
+
+        <div class="summary-breakdown">
+          <div class="summary-row">
+            <span>Subtotal artículos</span>
+            <span id="summary-subtotal">48,00 €</span>
+          </div>
+          <div class="summary-row">
+            <span>Gastos de gestión</span>
+            <span class="free-tag">0,00 € (Gratis)</span>
+          </div>
+          <div class="summary-row">
+            <span>IVA (21% incluido)</span>
+            <span>8,33 €</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row summary-total">
+            <span>Total a pagar</span>
+            <span id="summary-total">48,00 €</span>
+          </div>
+        </div>
+
+        <div class="demo-callout">
+          <div class="demo-callout-title">🕵️‍♂️ Nota de la Demo (Sección 3)</div>
+          <p>
+            Al pulsar <strong>Confirmar y Pagar</strong>, el backend devuelve un error
+            <code>HTTP 500 (PAYMENT_LEDGER_DEADLOCK)</code> en <code>POST /api/checkout</code>, pero el frontend
+            captura mal el fallo y muestra un banner verde de éxito.
+          </p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

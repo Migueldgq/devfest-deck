@@ -1,14 +1,38 @@
 {
-  "name": "devfest-santiago-slides",
+  "name": "dandole-manos-a-tu-ia-con-chrome-devtools-mcp",
   "private": true,
+  "version": "0.1.0",
+  "description": "Dándole \"manos\" a tu IA con Chrome DevTools MCP",
+  "author": "Miguel García",
   "type": "module",
   "scripts": {
-    "dev": "slidev --port 43123 --bind 0.0.0.0 --remote local",
-    "build": "slidev build",
-    "export": "slidev export"
+    "dev": "vite",
+    "demos": "node demos/start-all.mjs",
+    "build": "tsc --noEmit -p . && vite build && node scripts/check-offline.mjs dist deck",
+    "present": "npm run build && vite preview --host 127.0.0.1 --port 4173 --strictPort --open",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort",
+    "verify": "node scripts/verify.mjs dist artifacts/verify",
+    "shot": "node scripts/shot.mjs",
+    "upgrade": "node scripts/upgrade.mjs",
+    "typecheck": "tsc --noEmit -p ."
   },
   "dependencies": {
-    "@slidev/cli": "^53.0.0",
-    "@slidev/theme-default": "^0.25.0"
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "gsap": "^3.15.0",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsqr": "^1.4.0",
+    "playwright-core": "^1.63.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.3"
   }
 }

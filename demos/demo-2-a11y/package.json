@@ -1,0 +1,10 @@
+{
+  "name": "demo-2-a11y",
+  "version": "1.0.0",
+  "description": "Demo 2: Auditoría de Accesibilidad (a11y) - Lumina Studio Design Token Manager",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  }
+}

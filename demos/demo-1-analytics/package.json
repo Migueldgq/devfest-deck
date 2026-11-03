@@ -1,0 +1,10 @@
+{
+  "name": "demo-1-analytics",
+  "version": "1.0.0",
+  "description": "Demo 1: El Test QA con Analítica — Northius AI Cloud Enterprise Agentic Platform",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  }
+}

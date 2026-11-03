@@ -1,0 +1,10 @@
+{
+  "name": "demo-3-network",
+  "version": "1.0.0",
+  "description": "Demo 3: Debugging de Red · Un 500 escondido (DevFest Santiago 2026)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  }
+}

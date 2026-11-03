@@ -1,0 +1,121 @@
+/*
+ * DevFest Santiago de Compostela · Custom stage styling on top of beatdeck's neutral theme.
+ * High-contrast dark navy/carbon stage with Google / DevTools accent palette.
+ */
+:root {
+  --bg: #070b14;
+  --surface: #0e1526;
+  --surface-2: #131d33;
+  --ink: #f6f3ec;
+  --ink-2: rgba(246, 243, 236, 0.72);
+  --ink-3: rgba(246, 243, 236, 0.42);
+  --hair: rgba(246, 243, 236, 0.14);
+  --hair-strong: rgba(246, 243, 236, 0.26);
+
+  --accent: #4285f4;
+  --accent-strong: #1a73e8;
+  --ok: #34a853;
+  --warning: #fbbc04;
+  --fault: #ea4335;
+
+  --g-blue: #4285f4;
+  --g-red: #ea4335;
+  --g-yellow: #fbbc04;
+  --g-green: #34a853;
+}
+
+#stage {
+  background:
+    radial-gradient(920px 480px at 105% -5%, rgba(66, 133, 244, 0.16), transparent 60%),
+    radial-gradient(760px 420px at -5% 108%, rgba(251, 188, 4, 0.08), transparent 55%),
+    var(--bg);
+}
+
+.gdots {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gdots span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.gdots span:nth-child(1) { background: var(--g-blue); }
+.gdots span:nth-child(2) { background: var(--g-red); }
+.gdots span:nth-child(3) { background: var(--g-yellow); }
+.gdots span:nth-child(4) { background: var(--g-green); }
+
+.kicker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(251, 188, 4, 0.1);
+  border: 1px solid rgba(251, 188, 4, 0.35);
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--g-yellow);
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(234, 67, 53, 0.18);
+  border: 1px solid var(--g-red);
+  color: #ff8a80;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.stage-card {
+  background: rgba(14, 21, 38, 0.88);
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 32px 36px;
+  box-sizing: border-box;
+}
+
+.stage-card.hot {
+  border-color: var(--g-blue);
+  background: linear-gradient(180deg, rgba(66, 133, 244, 0.13) 0%, rgba(14, 21, 38, 0.92) 100%);
+  box-shadow: 0 0 48px rgba(66, 133, 244, 0.14);
+}
+
+.stage-card.ok {
+  border-color: var(--g-green);
+  background: linear-gradient(180deg, rgba(52, 168, 83, 0.12) 0%, rgba(14, 21, 38, 0.92) 100%);
+}
+
+.stage-card.fault {
+  border-color: var(--g-red);
+  background: linear-gradient(180deg, rgba(234, 67, 53, 0.14) 0%, rgba(14, 21, 38, 0.94) 100%);
+}
+
+.stage-card.warn {
+  border-color: var(--g-yellow);
+  background: linear-gradient(180deg, rgba(251, 188, 4, 0.12) 0%, rgba(14, 21, 38, 0.92) 100%);
+}
+
+.code-chip {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hair);
+  color: var(--g-yellow);
+}
