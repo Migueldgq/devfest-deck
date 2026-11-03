@@ -2,6 +2,7 @@
 window.dataLayer = window.dataLayer || [];
 
 const form = document.getElementById('contact-form');
+const roleSelect = document.getElementById('role');
 const submitBtn = document.getElementById('submit-btn');
 const formError = document.getElementById('form-error');
 const confirmationPanel = document.getElementById('confirmation-panel');
@@ -17,6 +18,8 @@ const datalayerCount = document.getElementById('datalayer-count');
 const datalayerJson = document.getElementById('datalayer-json');
 const copyDatalayerBtn = document.getElementById('copy-datalayer-btn');
 
+let formStarted = false;
+
 function renderDataLayerInspector() {
   const entries = Array.isArray(window.dataLayer) ? window.dataLayer : [];
   if (datalayerCount) {
@@ -27,15 +30,23 @@ function renderDataLayerInspector() {
     datalayerJson.scrollTop = datalayerJson.scrollHeight;
   }
 
-  const hasGenerateLead = entries.some((item) => item && item.event === 'generate_lead');
+  const eventNames = entries.map((item) => item && item.event).filter(Boolean);
+  const hasGenerateLead = eventNames.includes('generate_lead');
+  const hasFormStart = eventNames.includes('form_start');
+
   if (hasGenerateLead) {
     telemetryIndicator?.classList.add('is-lead');
     if (telemetryStatusPill) {
-      telemetryStatusPill.textContent = '✓ EVENT: generate_lead registrado';
+      telemetryStatusPill.textContent = `✓ FUNNEL COMPLETO (${ eventNames.join(' → ') })`;
       telemetryStatusPill.className = 'pill pill-success';
     }
     if (telemetryDrawer) {
       telemetryDrawer.open = true;
+    }
+  } else if (hasFormStart) {
+    if (telemetryStatusPill) {
+      telemetryStatusPill.textContent = `En curso: ${ eventNames.join(' → ') }`;
+      telemetryStatusPill.className = 'pill pill-neutral';
     }
   }
 }
@@ -48,7 +59,7 @@ window.dataLayer.push = function (...args) {
   return result;
 };
 
-// Push initial GA4 page_view event on load
+// 1. Push initial GA4 page_view event on load
 window.dataLayer.push({
   event: 'page_view',
   page_title: document.title,
@@ -62,6 +73,42 @@ function extractEmailDomain(email) {
   const parts = String(email || '').trim().split('@');
   return parts.length === 2 && parts[1] ? parts[1].toLowerCase() : 'unknown';
 }
+
+// 2. Push GA4 Enhanced Measurement `form_start` on first user/agent interaction with the form
+function triggerFormStartIfNeeded(target) {
+  if (formStarted) return;
+  const field = target?.closest?.('input, select, textarea');
+  if (!field) return;
+  formStarted = true;
+  window.dataLayer.push({
+    event: 'form_start',
+    form_id: 'contact-form',
+    form_name: 'Solicitar demo y acceso prioritario',
+    form_destination: `${window.location.origin}/api/contact`,
+    first_field_id: field.id || field.name || 'unknown',
+    send_to: 'G-NORTHIUS26',
+    timestamp: new Date().toISOString()
+  });
+}
+
+form?.addEventListener('focusin', (e) => triggerFormStartIfNeeded(e.target));
+form?.addEventListener('input', (e) => triggerFormStartIfNeeded(e.target));
+
+// 3. Push GA4 Recommended Event `select_content` when selecting a professional role
+roleSelect?.addEventListener('change', (e) => {
+  const selectedRole = e.target.value;
+  if (!selectedRole) return;
+  triggerFormStartIfNeeded(e.target);
+  window.dataLayer.push({
+    event: 'select_content',
+    content_type: 'professional_role',
+    item_id: selectedRole.toLowerCase().replace(/[^a-z0-9]+/g, '_'),
+    item_name: selectedRole,
+    form_id: 'contact-form',
+    send_to: 'G-NORTHIUS26',
+    timestamp: new Date().toISOString()
+  });
+});
 
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -85,6 +132,19 @@ form?.addEventListener('submit', async (event) => {
     }
     return;
   }
+
+  triggerFormStartIfNeeded(form.querySelector('input'));
+
+  // 4. Push GA4 Enhanced Measurement `form_submit` event when valid submission starts
+  window.dataLayer.push({
+    event: 'form_submit',
+    form_id: 'contact-form',
+    form_name: 'Solicitar demo y acceso prioritario',
+    form_destination: `${window.location.origin}/api/contact`,
+    form_submit_text: 'Solicitar acceso prioritario',
+    send_to: 'G-NORTHIUS26',
+    timestamp: new Date().toISOString()
+  });
 
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -111,13 +171,14 @@ form?.addEventListener('submit', async (event) => {
 
     const result = await response.json();
 
-    // Push rich GA4 generate_lead event to window.dataLayer
+    // 5. Push GA4 Recommended Conversion Event `generate_lead` to window.dataLayer
     window.dataLayer.push({
       event: 'generate_lead',
       event_category: 'engagement',
       event_label: 'contact_form_submission',
       lead_source: 'devfest_santiago_2026',
       lead_id: result.leadId || 'ld_8842',
+      lead_status: 'qualified',
       user_data: {
         full_name: name,
         email_domain: extractEmailDomain(email),
@@ -126,6 +187,7 @@ form?.addEventListener('submit', async (event) => {
       },
       value: 1,
       currency: 'EUR',
+      send_to: 'G-NORTHIUS26',
       timestamp: new Date().toISOString()
     });
 
@@ -151,6 +213,7 @@ form?.addEventListener('submit', async (event) => {
 
 resetFormBtn?.addEventListener('click', () => {
   form?.reset();
+  formStarted = false;
   if (confirmationPanel) confirmationPanel.hidden = true;
   if (form) form.hidden = false;
 });

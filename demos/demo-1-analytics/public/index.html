@@ -162,18 +162,18 @@
               </button>
 
               <p class="privacy-note">
-                Al enviar esta solicitud se dispara <code>POST /api/contact</code> y el evento GA4 <code>generate_lead</code> en <code>window.dataLayer</code>.
+                El embudo registra en <code>window.dataLayer</code> los eventos GA4: <code>page_view</code>, <code>form_start</code>, <code>select_content</code>, <code>form_submit</code> y <code>generate_lead</code>.
               </p>
             </form>
 
             <div id="confirmation-panel" class="confirmation-panel" role="status" aria-live="polite" hidden>
               <div class="confirmation-badge">
                 <span class="check-icon" aria-hidden="true">✓</span>
-                <span>Solicitud confirmada · Lead registrado</span>
+                <span>Solicitud confirmada · Funnel GA4 completado</span>
               </div>
               <h3>¡Gracias por tu interés, <span id="confirm-name"></span>!</h3>
               <p>
-                Hemos reservado tu entorno de evaluación para <strong id="confirm-company"></strong> y despachado el evento <code>generate_lead</code> a Google Analytics 4.
+                Hemos reservado tu entorno de evaluación para <strong id="confirm-company"></strong> y despachado la secuencia completa de eventos (<code>form_start</code> → <code>select_content</code> → <code>form_submit</code> → <code>generate_lead</code>) a Google Analytics 4.
               </p>
               <dl class="confirmation-meta">
                 <div>
@@ -181,8 +181,8 @@
                   <dd><code id="confirm-lead-id">ld_8842</code></dd>
                 </div>
                 <div>
-                  <dt>Evento GA4</dt>
-                  <dd><code>generate_lead</code></dd>
+                  <dt>Eventos GA4</dt>
+                  <dd><code>form_start · select_content · form_submit · generate_lead</code></dd>
                 </div>
                 <div>
                   <dt>Estado dataLayer</dt>

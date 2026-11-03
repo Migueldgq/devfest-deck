@@ -143,7 +143,7 @@ function Demos_() {
             <span style={{ fontSize: 24, fontWeight: 700, color: 'var(--g-green)' }}>
               Inspecciona window.dataLayer
             </span>
-            <span style={{ fontSize: 20, color: 'var(--g-yellow)' }}>event: &quot;generate_lead&quot;</span>
+            <span style={{ fontSize: 18, color: 'var(--g-yellow)' }}>form_start → form_submit → generate_lead</span>
           </div>
         }
       />
