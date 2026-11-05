@@ -19,25 +19,18 @@ function Mcp_() {
           <div className="t-statement" style={{ fontSize: 124, marginTop: 24 }}>
             ¿Qué es un MCP?
           </div>
-          <div className="t-editorial" style={{ fontSize: 48, color: 'var(--ink-2)', marginTop: 32, maxWidth: 1420 }}>
-            Model Context Protocol: un puerto estándar abierto para que el modelo deje de vivir encerrado en una caja de texto.
-          </div>
         </div>
       </Reveal>
 
-      {/* Beat 1..5 Header: Persistent while building the live architecture diagram */}
-      <Reveal on={inDiagram} x={140} y={110}>
+      {/* Beat 1 Header: the problem (brain in a jar) */}
+      <Reveal on={here && b === 1} out={here && b > 1} x={140} y={110}>
         <div style={{ width: 1640 }}>
-          <div className="kicker-pill">
-            {b === 1 ? 'Model Context Protocol · El Problema' : 'La Metáfora · El Estándar de Anthropic'}
-          </div>
+          <div className="kicker-pill">Model Context Protocol · El Problema</div>
           <div className="t-statement" style={{ fontSize: 88, marginTop: 20 }}>
-            {b === 1 ? 'Un cerebro en un frasco' : 'El USB-C de la Inteligencia Artificial'}
+            Un cerebro en un frasco
           </div>
           <div className="t-editorial" style={{ fontSize: 36, color: 'var(--ink-2)', marginTop: 16 }}>
-            {b === 1
-              ? 'Sabe mucho. Razona muy bien. Pero está encerrado en una caja de texto: no tiene manos.'
-              : 'Un mismo puerto universal. El cable cambia según la herramienta que le conectes.'}
+            Sabe mucho. Razona muy bien. Pero está encerrado en una caja de texto: no tiene manos.
           </div>
         </div>
       </Reveal>
