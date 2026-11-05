@@ -170,7 +170,7 @@ function Intro_() {
       <Reveal on={here && b === 3} out={here && b > 3} x={140} y={220}>
         <div style={{ width: 1640 }}>
           <div className="kicker-pill">Stand de Google Chrome</div>
-          <div className="t-statement" style={{ fontSize: 116, marginTop: 32, color: 'var(--ink)' }}>
+          <div className="t-statement" style={{ fontSize: 100, marginTop: 32, color: 'var(--ink)' }}>
             “Hacer un testeo sin armarlo a código.”
           </div>
           <div
