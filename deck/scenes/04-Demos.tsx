@@ -154,13 +154,13 @@ function Demos_() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
               <span className="live-badge">LIVE DEMO 02</span>
-              <span className="kicker-pill">Accesibilidad · a11y</span>
+              <span className="kicker-pill">Accesibilidad · WCAG Guidelines</span>
             </div>
             <span className="code-chip">http://localhost:4002</span>
           </div>
 
           <div className="t-statement" style={{ fontSize: 88, marginTop: 22 }}>
-            Contraste de Colores y Etiquetas ARIA
+            Auditoría de Accesibilidad (WCAG)
           </div>
 
           <div className="stage-card warn" style={{ marginTop: 32, padding: '32px 40px' }}>
@@ -170,7 +170,7 @@ function Demos_() {
             <div
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: 34,
+                fontSize: 32,
                 lineHeight: 1.42,
                 color: 'var(--ink)',
                 marginTop: 18,
@@ -178,6 +178,9 @@ function Demos_() {
             >
               “Pásame un reporte de <span style={{ color: 'var(--g-yellow)' }}>contraste de colores</span> y comprueba si falta alguna{' '}
               <span style={{ color: 'var(--g-blue)' }}>etiqueta ARIA</span> en la página actual.”
+            </div>
+            <div style={{ fontSize: 22, color: 'var(--ink-2)', marginTop: 14 }}>
+              Bonus en vivo: pedirle que ejecute un script para corregir los problemas y ver el cambio en el navegador.
             </div>
           </div>
         </div>
@@ -205,7 +208,7 @@ function Demos_() {
         value={
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <span style={{ fontSize: 24, fontWeight: 700, color: 'var(--g-yellow)' }}>Ratios &lt; 4.5:1 detectados</span>
-            <span style={{ fontSize: 20, color: 'var(--ink-2)' }}>#b8bfcc sobre #f8fafc (1.7:1)</span>
+            <span style={{ fontSize: 20, color: 'var(--ink-2)' }}>Falta de contraste y ARIA</span>
           </div>
         }
       />
@@ -213,11 +216,11 @@ function Demos_() {
         rect={STEP_C}
         on={here && b === 2}
         tone="hot"
-        kind="semántica y aria"
+        kind="corrección interactiva"
         value={
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <span style={{ fontSize: 24, fontWeight: 700, color: 'var(--g-red)' }}>Botones sin aria-label</span>
-            <span style={{ fontSize: 20, color: 'var(--ink-2)' }}>Inputs sin label · div switch</span>
+            <span style={{ fontSize: 24, fontWeight: 700, color: 'var(--g-green)' }}>Script de corrección en vivo</span>
+            <span style={{ fontSize: 20, color: 'var(--ink-2)' }}>La web se arregla ante tus ojos</span>
           </div>
         }
       />

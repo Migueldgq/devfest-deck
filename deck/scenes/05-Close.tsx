@@ -14,7 +14,7 @@ function Close_() {
       {/* Beat 0: Volvemos a Berlín — Causal Chain */}
       <Reveal on={here && b === 0} out={here && b > 0} x={140} y={140}>
         <div style={{ width: 1640 }}>
-          <div className="kicker-pill">Volvemos a Berlín</div>
+          <div className="kicker-pill">Volvemos al inicio</div>
           <div className="t-statement" style={{ fontSize: 98, marginTop: 28 }}>
             Si no hubiera ido a ese evento,
           </div>
@@ -22,7 +22,7 @@ function Close_() {
             hoy no estaría aquí.
           </div>
           <div className="t-editorial" style={{ fontSize: 38, color: 'var(--ink-2)', marginTop: 32 }}>
-            Por qué les conté la anécdota del principio:
+            Por qué les conté la anécdota de Berlín del principio:
           </div>
         </div>
       </Reveal>
@@ -34,55 +34,55 @@ function Close_() {
       <NodeBox
         rect={CHAIN_1}
         on={here && b === 0}
-        kind="01 · moverse"
-        value={<span style={{ fontSize: 22 }}>Ir a Berlín (I/O Connect)</span>}
+        kind="01 · viajar a berlín"
+        value={<span style={{ fontSize: 22 }}>Google I/O Connect</span>}
       />
       <NodeBox
         rect={CHAIN_2}
         on={here && b === 0}
-        kind="02 · curiosidad"
-        value={<span style={{ fontSize: 22 }}>Pasar por aquel stand</span>}
+        kind="02 · stand de chrome"
+        value={<span style={{ fontSize: 22 }}>Descubrir este MCP</span>}
       />
       <NodeBox
         rect={CHAIN_3}
         on={here && b === 0}
-        kind="03 · investigar"
-        value={<span style={{ fontSize: 22 }}>Probar el protocolo MCP</span>}
+        kind="03 · conocer a sara"
+        value={<span style={{ fontSize: 22 }}>GDG Santiago</span>}
       />
       <NodeBox
         rect={CHAIN_4}
         on={here && b === 0}
         tone="hot"
-        kind="04 · compartir"
-        value={<span style={{ fontSize: 22, color: 'var(--g-yellow)' }}>Contarlo hoy en Santiago</span>}
+        kind="04 · compartir hoy"
+        value={<span style={{ fontSize: 22, color: 'var(--g-yellow)' }}>Dar esta charla hoy aquí</span>}
       />
 
       {/* Beat 1: Comunidad y Carrera — Estudiar es la base + Networking */}
       <Reveal on={here && b === 1} out={here && b > 1} x={140} y={130}>
         <div style={{ width: 1640 }}>
-          <div className="kicker-pill">Por qué estamos aquí</div>
+          <div className="kicker-pill">Moverse y hacer cosas</div>
           <div className="t-statement" style={{ fontSize: 112, marginTop: 26 }}>
             Estudiar es la base.
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 26, marginTop: 56 }}>
             <div className="stage-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 44, fontWeight: 600, color: 'var(--ink)' }}>
-                Pero lo que nos da el impulso es <span style={{ color: 'var(--g-blue)' }}>movernos</span>.
+              <span style={{ fontSize: 42, fontWeight: 600, color: 'var(--ink)' }}>
+                Pero las cosas se consiguen <span style={{ color: 'var(--g-blue)' }}>moviéndose y haciendo cosas</span>.
               </span>
-              <span className="t-meta" style={{ fontSize: 22 }}>IMPULSO</span>
+              <span className="t-meta" style={{ fontSize: 22 }}>ACCIÓN</span>
             </div>
 
             <div className="stage-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 44, fontWeight: 600, color: 'var(--ink)' }}>
-                Lo que nos saca del <span style={{ color: 'var(--g-red)' }}>tutorial hell</span>.
+              <span style={{ fontSize: 42, fontWeight: 600, color: 'var(--ink)' }}>
+                Salir del bucle del <span style={{ color: 'var(--g-red)' }}>tutorial hell</span> exponiéndose al mundo.
               </span>
-              <span className="t-meta" style={{ fontSize: 22 }}>DESCUBRIR</span>
+              <span className="t-meta" style={{ fontSize: 22 }}>EXPOSICIÓN</span>
             </div>
 
             <div className="stage-card hot" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: 48, fontWeight: 700, color: 'var(--g-yellow)' }}>
-                Hacer eso que se llama networking.
+              <span style={{ fontSize: 44, fontWeight: 700, color: 'var(--g-yellow)' }}>
+                Hacer eso tan famoso llamado networking.
               </span>
               <span className="t-meta" style={{ fontSize: 22, color: 'var(--g-yellow)' }}>COMUNIDAD</span>
             </div>
@@ -101,21 +101,21 @@ function Close_() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, marginTop: 64 }}>
             <div className="stage-card hot" style={{ padding: '48px 44px' }}>
               <div className="t-numeral" style={{ fontSize: 96, color: 'var(--g-blue)' }}>01</div>
-              <div style={{ fontSize: 46, fontWeight: 700, color: 'var(--ink)', marginTop: 28, lineHeight: 1.15 }}>
-                Cómo darle <span style={{ color: 'var(--g-yellow)' }}>“manos”</span> a su IA con el protocolo MCP
+              <div style={{ fontSize: 44, fontWeight: 700, color: 'var(--ink)', marginTop: 28, lineHeight: 1.15 }}>
+                Cómo darle <span style={{ color: 'var(--g-yellow)' }}>“manos”</span> a tu agente con este MCP
               </div>
               <div style={{ fontSize: 26, color: 'var(--ink-2)', marginTop: 20 }}>
-                Conectando su agente directamente al sistema nervioso del navegador (CDP).
+                Acceso directo a la capa de desarrollo del navegador para emular, auditar y diagnosticar.
               </div>
             </div>
 
             <div className="stage-card ok" style={{ padding: '48px 44px' }}>
               <div className="t-numeral" style={{ fontSize: 96, color: 'var(--g-green)' }}>02</div>
-              <div style={{ fontSize: 46, fontWeight: 700, color: 'var(--ink)', marginTop: 28, lineHeight: 1.15 }}>
-                Más ganas de seguir asistiendo a eventos como este <span style={{ color: 'var(--g-green)' }}>DevFest</span>
+              <div style={{ fontSize: 44, fontWeight: 700, color: 'var(--ink)', marginTop: 28, lineHeight: 1.15 }}>
+                Muchísimas ganas de seguir viniendo y <span style={{ color: 'var(--g-green)' }}>exponerse</span>
               </div>
               <div style={{ fontSize: 26, color: 'var(--ink-2)', marginTop: 20 }}>
-                El simple hecho de que estén hoy en esta sala ya dice muchísimo de ustedes.
+                Asistir a eventos, dar charlas o mostrar proyectos: en resumen, exposición.
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ function Mcp_() {
             Un cerebro en un frasco
           </div>
           <div className="t-editorial" style={{ fontSize: 36, color: 'var(--ink-2)', marginTop: 16 }}>
-            Sabe mucho. Razona muy bien. Pero está encerrado en una caja de texto: no tiene manos.
+            Un cerebro muy sabio dentro de un frasco: no tiene manos y no puede acceder a conocimiento de fuera.
           </div>
         </div>
       </Reveal>
@@ -40,13 +40,13 @@ function Mcp_() {
         rect={BRAIN_JAR}
         on={inDiagram}
         tone={b === 1 ? 'ghost' : 'normal'}
-        kind={b === 1 ? 'caja de texto aislada' : 'modelo de lenguaje (llm)'}
+        kind={b === 1 ? 'cerebro en un frasco' : 'modelo de lenguaje (llm)'}
         value={
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <div style={{ fontSize: 32, fontWeight: 600, color: 'var(--ink)' }}>Cerebro IA</div>
-            <div style={{ fontSize: 21, color: 'var(--ink-2)' }}>✓ Sabe mucho · ✓ Razona bien</div>
+            <div style={{ fontSize: 21, color: 'var(--ink-2)' }}>✓ Muy sabio · ✓ Razona bien</div>
             <div style={{ fontSize: 21, color: b === 1 ? 'var(--g-red)' : 'var(--g-green)' }}>
-              {b === 1 ? '✕ Sin manos (aislado)' : '✓ Conectado vía MCP'}
+              {b === 1 ? '✕ Sin manos · Aislado' : '✓ Conectado vía MCP'}
             </div>
           </div>
         }
@@ -74,8 +74,8 @@ function Mcp_() {
         rect={PORT_DB}
         on={here && b >= 3}
         tone={b > 3 ? 'dim' : 'normal'}
-        kind="cable 01 · datos"
-        value={<span style={{ fontSize: 26 }}>Bases de datos (SQL / NoSQL)</span>}
+        kind="cable 01 · conocimiento"
+        value={<span style={{ fontSize: 26 }}>Beber de Bases de Datos (SQL / NoSQL)</span>}
       />
 
       {/* Beat 4+: Cable 02 -> Local Files */}
@@ -98,7 +98,7 @@ function Mcp_() {
         value={
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             <span style={{ fontSize: 28, fontWeight: 700, color: 'var(--g-yellow)' }}>
-              Directamente al Navegador
+              Capa de Desarrollo del Navegador
             </span>
             <span style={{ fontSize: 20, color: 'var(--ink-2)' }}>Chrome DevTools MCP</span>
           </div>
@@ -110,7 +110,7 @@ function Mcp_() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           <span className="code-chip">Estándar abierto</span>
           <span style={{ fontSize: 26, color: 'var(--ink-2)' }}>
-            El modelo deja de imaginar qué pasa en tu web y pasa a tocar el navegador real.
+            El MCP le permite al agente beber conocimiento de fuera y acceder a la capa de desarrollo del navegador.
           </span>
         </div>
       </Reveal>

@@ -6,7 +6,7 @@ export const config = {
   title: 'Dándole "manos" a tu IA con Chrome DevTools MCP',
   subtitle: 'DevFest Santiago de Compostela',
   author: 'Miguel García',
-  role: 'Full stack AI-native engineer',
+  role: 'Desarrollador full stack',
   company: 'Grupo Northius',
   community: 'GDG A Coruña · Organizador',
   event: 'DevFest Santiago de Compostela',

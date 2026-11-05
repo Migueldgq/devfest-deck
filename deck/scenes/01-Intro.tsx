@@ -80,7 +80,7 @@ function Intro_() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div className="kicker-pill">Junio · Berlín</div>
             <div className="t-meta" style={{ fontSize: 20, color: 'var(--ink-2)' }}>
-              STAND DEL ECOSISTEMA DE GOOGLE CHROME · DEMO EN DIRECTO
+              STANDS: ECOSISTEMA IA · CLOUD · ANDROID · CHROME
             </div>
           </div>
           <div className="t-statement" style={{ fontSize: 72, marginTop: 14 }}>
@@ -149,8 +149,8 @@ function Intro_() {
       <NodeBox
         rect={BOOTH_NODE}
         on={here && b === 2}
-        kind="stand en directo · berlín"
-        value={<span style={{ fontSize: 25 }}>Prompt en lenguaje natural</span>}
+        kind="stand de chrome · berlín"
+        value={<span style={{ fontSize: 25 }}>Demo en lenguaje natural</span>}
       />
       <NodeBox
         rect={AGENT_NODE}
@@ -163,29 +163,29 @@ function Intro_() {
         rect={CHROME_NODE}
         on={here && b === 2}
         kind="navegador real"
-        value={<span style={{ fontSize: 25 }}>Testeo profundo en vivo</span>}
+        value={<span style={{ fontSize: 25 }}>Testeo sin armarlo a código</span>}
       />
 
-      {/* Beat 3: Statement — Me explotó la cabeza */}
-      <Reveal on={here && b === 3} out={here && b > 3} x={140} y={240}>
+      {/* Beat 3: Statement — La demo en directo / Memoria de pez */}
+      <Reveal on={here && b === 3} out={here && b > 3} x={140} y={220}>
         <div style={{ width: 1640 }}>
-          <div className="kicker-pill">La demo en directo</div>
-          <div className="t-statement" style={{ fontSize: 138, marginTop: 36, color: 'var(--ink)' }}>
-            Me explotó la cabeza.
+          <div className="kicker-pill">Stand de Google Chrome</div>
+          <div className="t-statement" style={{ fontSize: 116, marginTop: 32, color: 'var(--ink)' }}>
+            “Hacer un testeo sin armarlo a código.”
           </div>
           <div
             className="stage-card hot"
-            style={{ marginTop: 56, width: 1480, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+            style={{ marginTop: 48, width: 1520, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '36px 44px' }}
           >
             <div>
-              <div className="t-meta" style={{ fontSize: 20, color: 'var(--g-blue)' }}>
-                LO QUE VI EN AQUEL STAND
+              <div className="t-meta" style={{ fontSize: 20, color: 'var(--g-yellow)' }}>
+                LA DEMO QUE ME LLEVÓ A ESTE PROTOCOLO
               </div>
-              <div style={{ fontSize: 36, color: 'var(--ink)', marginTop: 14, lineHeight: 1.3 }}>
-                Le pidieron a la IA, en lenguaje natural, un testeo profundo en el navegador.
+              <div style={{ fontSize: 34, color: 'var(--ink)', marginTop: 14, lineHeight: 1.35 }}>
+                A través de <span style={{ color: 'var(--g-yellow)' }}>lenguaje natural</span> le pedías que hiciera un QA en el navegador.
               </div>
-              <div style={{ fontSize: 30, color: 'var(--ink-2)', marginTop: 10 }}>
-                De golpe se me vinieron mil ideas sobre cómo cambiar nuestra forma de desarrollar.
+              <div style={{ fontSize: 28, color: 'var(--ink-2)', marginTop: 10 }}>
+                Me pareció increíble: me llevó a investigar a fondo este MCP y empezar a utilizarlo.
               </div>
             </div>
           </div>
@@ -199,28 +199,28 @@ function Intro_() {
           <div className="t-statement" style={{ fontSize: 112, marginTop: 24 }}>
             Miguel García
           </div>
-          <div className="t-editorial" style={{ fontSize: 42, color: 'var(--ink-2)', marginTop: 24 }}>
-            <span style={{ color: 'var(--g-yellow)' }}>Full stack AI-native engineer</span> en Grupo Northius y organizador en GDG A Coruña.
+          <div className="t-editorial" style={{ fontSize: 40, color: 'var(--ink-2)', marginTop: 24 }}>
+            <span style={{ color: 'var(--g-yellow)' }}>Desarrollador full stack</span> en Northius y organizador en GDG A Coruña.
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32, marginTop: 64 }}>
             <div className="stage-card">
               <div className="t-meta" style={{ fontSize: 20, color: 'var(--ink-3)' }}>01 // TRABAJO</div>
               <div style={{ fontSize: 44, fontWeight: 600, marginTop: 18, color: 'var(--ink)' }}>
-                Grupo Northius
+                Northius
               </div>
               <div style={{ fontSize: 24, color: 'var(--ink-2)', marginTop: 12 }}>
-                Desarrollo de producto y plataformas con IA en el centro.
+                Desarrollo full stack de producto y plataformas.
               </div>
             </div>
 
             <div className="stage-card hot">
               <div className="t-meta" style={{ fontSize: 20, color: 'var(--g-blue)' }}>02 // OFICIO</div>
-              <div style={{ fontSize: 36, fontWeight: 600, marginTop: 18, color: 'var(--g-yellow)' }}>
-                Full stack AI-native engineer
+              <div style={{ fontSize: 38, fontWeight: 600, marginTop: 18, color: 'var(--g-yellow)' }}>
+                Desarrollador full stack
               </div>
               <div style={{ fontSize: 24, color: 'var(--ink-2)', marginTop: 12 }}>
-                Arquitectura web de extremo a extremo + agentes conectados.
+                Frontend, backend y agentes conectados al navegador.
               </div>
             </div>
 
@@ -231,6 +231,48 @@ function Intro_() {
               </div>
               <div style={{ fontSize: 24, color: 'var(--ink-2)', marginTop: 12 }}>
                 Organizador · Compartiendo comunidad en Galicia.
+              </div>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Beat 5: Hoja de ruta — En esta charla vamos a */}
+      <Reveal on={here && b === 5} x={140} y={130}>
+        <div style={{ width: 1640 }}>
+          <div className="kicker-pill">Hoja de ruta</div>
+          <div className="t-statement" style={{ fontSize: 104, marginTop: 24 }}>
+            En esta charla vamos a:
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 32, marginTop: 64 }}>
+            <div className="stage-card" style={{ padding: '40px 36px' }}>
+              <div className="t-numeral" style={{ fontSize: 80, color: 'var(--g-yellow)' }}>01</div>
+              <div style={{ fontSize: 36, fontWeight: 700, marginTop: 16, color: 'var(--ink)', lineHeight: 1.25 }}>
+                Repasar qué es un MCP
+              </div>
+              <div style={{ fontSize: 24, color: 'var(--ink-2)', marginTop: 16 }}>
+                El estándar abierto de Anthropic para darle “manos” a nuestro agente.
+              </div>
+            </div>
+
+            <div className="stage-card" style={{ padding: '40px 36px' }}>
+              <div className="t-numeral" style={{ fontSize: 80, color: 'var(--g-blue)' }}>02</div>
+              <div style={{ fontSize: 36, fontWeight: 700, marginTop: 16, color: 'var(--ink)', lineHeight: 1.25 }}>
+                Computer use vs. Agente con MCP
+              </div>
+              <div style={{ fontSize: 24, color: 'var(--ink-2)', marginTop: 16 }}>
+                Mirar capturas de pantalla frente a entrar a la capa de desarrollo.
+              </div>
+            </div>
+
+            <div className="stage-card hot" style={{ padding: '40px 36px' }}>
+              <div className="t-numeral" style={{ fontSize: 80, color: 'var(--g-green)' }}>03</div>
+              <div style={{ fontSize: 36, fontWeight: 700, marginTop: 16, color: 'var(--g-yellow)', lineHeight: 1.25 }}>
+                3 demos de cómo usar el MCP
+              </div>
+              <div style={{ fontSize: 24, color: 'var(--ink-2)', marginTop: 16 }}>
+                QA con analítica GA4, accesibilidad WCAG y debugging de red.
               </div>
             </div>
           </div>

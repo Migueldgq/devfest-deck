@@ -1,48 +1,113 @@
-# Guion de Charla: Dándole "manos" a tu IA con Chrome DevTools MCP
+# Guion de la Charla — DevFest Santiago de Compostela 2026
 
-> Sincronizado desde Google Doc `1R0kDD_OyWNTNH0bUu537rv8Z4zmUrAfvgPgsB3_eJPk`
-> (Guion Charla DevFest - Dándole manos a tu IA con Chrome DevTools MCP)
+**Ponente:** Miguel García  
+**Título:** Dándole "manos" a tu IA con Chrome DevTools MCP  
+**Rol:** Desarrollador full stack en Northius · Organizador en GDG A Coruña  
+**Fecha:** Noviembre 2026 · DevFest Santiago de Compostela  
 
-## 1. La Intro y el Rompehielos (El gancho)
+---
 
-"Muy buenas a todos. Para arrancar esta charla, quiero llevarlos un momento a junio de este año. Viajé a Berlín para asistir al Google I/O Connect. Mientras paseaba por allí, me acerqué al stand del equipo del ecosistema de Google Chrome y tenían una demo montada en directo que me llamó muchísimo la atención: era el **Chrome DevTools for Agents MCP**.
+## 1. Introducción y la Historia de Berlín
 
-Sinceramente, no recuerdo el comando exacto que lanzaron en la demo, pero sí recuerdo lo que vi: le pidieron a la IA en lenguaje natural que hiciera un testeo profundo en el navegador usando ese protocolo. Cuando vi cómo el agente interactuaba con la web, me explotó la cabeza. Se me vinieron de golpe mil ideas sobre cómo podíamos cambiar nuestra forma de desarrollar.
+Esta charla no la quiero comenzar haciendo la clásica presentación de *"hola buenas, soy Miguel del grupo 1 y hoy voy a hablar de inteligencia artificial"*, así que quiero iniciarla contando la historia de cómo conocí el MCP del que voy a hablar hoy.
 
-Así que, después de esta pequeña anécdota, me presento: mi nombre es Miguel García. Trabajo como **Full stack AI-native engineer** en Grupo Northius y, además de eso, formo parte del Google Developer Groups (GDG) A Coruña como organizador."
+Todo se remonta a junio de este año, mes en el que viajo a Berlín al **Google I/O Connect**. Si alguien no sabe qué es el Google I/O Connect, es la versión Europa del Google I/O y es un evento en el que Google cuenta las novedades que traen para el año: modelos nuevos open source, etc.
 
-## 2. ¿Qué es un MCP? (La teoría fácil)
+El caso es que en este evento habían distintos stands y se dividían entre **ecosistema IA, Cloud, Android y Chrome**.
 
-"Vale, vamos al lío. He mencionado la palabra 'MCP', pero... ¿qué es exactamente un MCP (Model Context Protocol)?
+A mí me llamó la atención el de **Chrome**, y en ese stand te mostraban una demo que ahora mismo no recuerdo bien lo que hacía —lo siento, tengo memoria de pez a temprana edad—, pero sé que era que a través de **lenguaje natural** podías hacer un QA: podías pedirle que te hiciera un testeo sin necesidad de armarlo a código. Y eso fue algo que a mí en lo personal me pareció increíble y me llevó a investigar más sobre este MCP y utilizarlo.
 
-Imaginen un modelo de lenguaje, por muy potente que sea, como un cerebro en un frasco. Sabe mucho, razona muy bien, pero está encerrado en una caja de texto. No tiene manos. Para que nosotros le demos herramientas, Anthropic sacó un estándar de código abierto llamado MCP.
+Ahora sí, después de esta breve historia, me presento:
 
-**El MCP es, literalmente, el USB-C de la Inteligencia Artificial.**
+> Soy **Miguel García** —tengo dos nombres pero solo mi madre me llama por los dos cuando me quiere echar la bronca—, actualmente estoy trabajando como **desarrollador full stack en Northius** y soy **organizador de GDG A Coruña**.
 
-Igual que ustedes usan un cable USB-C para conectar un monitor, un disco duro o un móvil a su portátil con el mismo puerto, el MCP es un puerto estándar que permite conectar un modelo de IA a sus bases de datos, a sus archivos locales, o en este caso, **directamente a su navegador**."
+En esta charla vamos a:
+1. **Repasar qué es un MCP**
+2. **Agente Computer use vs. Usar agente con MCP**
+3. **3 demos de cómo usar el MCP**
 
-## 3. Chrome DevTools MCP vs. Agentes Visuales (Computer Use)
+---
 
-"Ahora mismo, si quieren automatizar un navegador con IA, pueden usar agentes de 'Computer Use', esos que levantan una máquina virtual y mueven el ratón. ¿Cuál es el problema de eso? Que el agente solo 'mira la pantalla'. Si la página carga y el botón se ve, el agente les dirá: *'Todo guay, test superado'*. Pero es ciego a lo que pasa por debajo.
+## 2. Repasar qué es un MCP
 
-El **Chrome DevTools MCP** no usa los ojos, se conecta directamente al sistema nervioso del navegador: el *Chrome DevTools Protocol (CDP)*. Esto significa que la IA puede leer la consola de JavaScript en tiempo real, ver si una petición de red ha dado un error 500 silencioso o leer las variables ocultas del DOM. Es un desarrollador auditando, no un usuario mirando."
+Vamos con el primer punto: ¿quién de aquí ha utilizado algún MCP y podría decirme qué es un MCP?
 
-## 4. Las Live-Demos (La acción)
+*(Pausa interactiva con el público... Si nadie responde:)*  
+*—"Venga va, no me hacen falta definiciones técnicas, me vale que sea con las propias palabras de ustedes."*
 
-"Pero como esto se entiende mejor viéndolo, vamos a ensuciarnos las manos. Voy a usar Antigravity, mi editor, conectado por MCP al navegador de Chrome para hacer 3 cosas en directo:
+Vale, pues un MCP (**Model Context Protocol**) es un protocolo de estándar abierto creado por **Anthropic** por el cual podemos darle **"manos"** a nuestro agente.
 
-- **Demo 1: El Test QA con Analítica.** Le voy a pedir a Antigravity: *'Navega a esta landing en localhost, rellena el formulario de contacto con datos realistas y verifica que en el window.dataLayer se ha registrado perfectamente el evento de Google Analytics'*. Nada de selectores frágiles, puro lenguaje natural.
-- **Demo 2: Auditoría de Accesibilidad (a11y).** Le diré al agente: *'Pásame un reporte de contraste de colores y comprueba si falta alguna etiqueta ARIA en la página actual'*. Van a ver cómo la IA audita el DOM profundo y nos devuelve los errores.
-- **Demo 3: Debugging de Red.** Voy a simular un fallo en la API y le pediré al agente: *'Haz el flujo de compra y avísame si ves algún error en las peticiones de red o en la consola'*. La IA interceptará el tráfico de red nativo de DevTools."
+Imaginemos un agente como un **cerebro muy sabio pero dentro de un frasco**: no tiene manos y no puede acceder a conocimiento de fuera.
 
-## 5. El Cierre (La inspiración)
+Un MCP le permite al agente beber conocimiento de **bases de datos, archivos locales y código**, y en este caso le damos acceso al **navegador**, específicamente a la **capa de desarrollo**.
 
-"Y bueno, para terminar, quiero volver un momento a esa historia del principio, a ese viaje a Berlín.
+---
 
-¿Por qué les he contado esto? Porque si no hubiera ido a ese evento, no habría pasado por aquel stand. No habría visto ese protocolo funcionar, no habría investigado sobre ello y, desde luego, hoy no estaría aquí subido contándoles esto a ustedes.
+## 3. Agente Computer use vs. Usar agente con MCP
 
-Quiero que todos y todas los que están aquí presentes se vayan con más ganas de seguir asistiendo a eventos como este DevFest. En este mundo de la tecnología, está claro que estudiar es la base, pero lo que de verdad nos da el impulso en nuestra carrera profesional, lo que nos saca del 'tutorial hell' y nos hace descubrir cosas increíbles, es estar moviéndonos y haciendo eso que se llama networking.
+¿Cuál es la diferencia entre un agente *computer use* —que es, digamos, el agente normal sin este MCP— frente a nuestro agente con este MCP?
 
-El simple hecho de que estén aquí hoy ya dice muchísimo de ustedes. Así que espero que se lleven claro cómo funciona y cómo darle 'manos' a su IA con el MCP, pero, sobre todo, espero que se vayan con más ganas de seguir asistiendo a eventos de este tipo.
+La diferencia es que el agente *computer use* se basa en **leer el navegador con capturas de pantalla únicamente**, solo eso. Y el agente con el **Chrome DevTools MCP for agents** tiene acceso directo a la **capa de desarrollo**.
 
-Muchas gracias."
+¿Esto qué quiere decir? Y aquí quiero lanzar pregunta al público:
+
+> *Si tenemos una pasarela de pagos que queremos testear, y en el frontend todo pone que está okey, pero resulta que por detrás la petición a nuestra API está fallando... ¿qué agente lo detecta primero? ¿El computer use o nuestro agente con el MCP?*
+
+*(Alguien del público contesta que con el MCP)*  
+—*¡Perfecto, respuesta correcta!*
+
+Entonces ya lo tenemos claro: cómo funciona y qué ventaja nos da este MCP. Los **3 puntos fuertes** de este MCP son:
+1. **Emular experiencia de usuario**
+2. **Auditar accesibilidad**
+3. **Análisis de performance** (como Core Web Vitals)
+
+---
+
+## 4. Las 3 Demos en Directo
+
+Así que dicho esto, ¡vamos con las demos!
+
+### Demo 1: Test de Formulario y Analítica GA4
+Le pedimos con lenguaje natural —nada de tecnicismo profundo— realizar el testeo de envío de formulario y verificar que saltan los eventos de **GA4**. Para quien no lo sabe, estos son los eventos estándar de Google de analítica con los que, por ejemplo, cuando haces campañas de marketing puedes generar trazabilidad.
+
+*(Realizo la demo en directo en localhost:4001...)*
+
+### Demo 2: Auditoría de Accesibilidad (WCAG) + Corrección en Vivo
+Vamos ahora con la segunda demo, en la que vamos a hacer una auditoría de accesibilidad basándonos en **WCAG** (*Web Content Accessibility Guidelines*).
+
+Algo muy interesante de esto, que es algo que surgió ayer cuando di esta charla en mi empresa —porque sí, di esta charla el martes en mi empresa porque me dieron la oportunidad y me pareció bien para romper el hielo—, entonces lo que me propuso un compañero que asistió a la charla fue:
+
+> *¿Con el análisis que te hace la IA de lo que descubrió, es posible que tú le pidas que ejecute un script en el navegador para que aplique las correcciones respectivas y tú veas la web como se debe?*
+
+La respuesta es **sí**: ¡así que muy atentos porque sí que se nota el cambio!
+
+*(Realizo la demo en directo en localhost:4002...)*
+
+### Demo 3: Pasarela de Pagos (Error 500 Silencioso en DevTools)
+Vamos ahora con la tercera y última demo: esta es una pasarela de pagos que visualmente nos dice que todo está correcto, pero por detrás está fallando.
+
+Vamos a ello.
+
+Como podemos ver, efectivamente lo que nos genera el reporte es que hay un error en la API del checkout, y si nos vamos a las DevTools de red lo tenemos aquí.
+
+*(Realizo la demo en directo en localhost:4003...)*
+
+---
+
+## 5. Cierre: Networking, Exposición y Agradecimientos
+
+Ahora quiero volver al inicio de la charla, cuando conté la historia del evento de Berlín.
+
+¿Por qué? Porque si yo no hubiera estado en ese evento, no hubiera descubierto este MCP —o quizás sí, quién sabe—, y quizás no hubiera estado aquí ahora mismo tampoco. Porque en ese viaje a Berlín conocí a **Sara**, una organizadora de **GDG Santiago**, que fue la que me escribió para ver si me interesaba dar una charla aquí. *(Le mando un abrazo grande a Sara desde aquí por eso)*.
+
+Entonces, ¿a dónde quiero ir con esto?
+
+Supongo que la mayoría de personas aquí son estudiantes, o igual no, pero seguramente tienen como propósito seguir hacia adelante y crecer profesionalmente. Y desde mi experiencia personal lo que yo puedo decir es que sí: **estudiar es la base**, pero al final las cosas se consiguen **moviéndose y haciendo cosas**, como dijo ayer nuestro compañero **Martín**.
+
+Al final, lo que te ayudará de verdad mucho más que estar en un bucle de *tutorial hell* haciendo miles y miles de tutoriales es salir a **exponerte al mundo**, y hacer eso tan famoso llamado **networking**.
+
+Entonces, yo hoy quiero que todos se vayan de aquí con **dos cosas**:
+1. **Cómo darle manos a su agente** con Chrome DevTools MCP.
+2. **Muchísimas ganas de seguir asistiendo a eventos como este y exponerse al público**: ya sea dando charlas, haciendo proyectos o presentándolos... pero en resumen: **¡Exposición!**
+
+Muchas gracias y espero que les haya gustado.
