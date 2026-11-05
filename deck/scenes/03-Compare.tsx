@@ -20,7 +20,7 @@ function Compare_() {
       <Reveal on={here && b === 0} out={here && b > 0} x={140} y={240}>
         <div style={{ width: 1640 }}>
           <div className="t-numeral" style={{ fontSize: 180, color: 'var(--g-blue)' }}>02</div>
-          <div className="t-statement" style={{ fontSize: 104, marginTop: 24 }}>
+          <div className="t-statement" style={{ fontSize: 94, marginTop: 24, whiteSpace: 'normal', lineHeight: 1.05 }}>
             Computer Use vs. Agente con MCP
           </div>
           <div className="t-editorial" style={{ fontSize: 44, color: 'var(--ink-2)', marginTop: 32, maxWidth: 1460 }}>
@@ -161,7 +161,7 @@ function Compare_() {
       <Reveal on={here && b === 4} x={140} y={130}>
         <div style={{ width: 1640 }}>
           <div className="kicker-pill">Ventajas Clave</div>
-          <div className="t-statement" style={{ fontSize: 96, marginTop: 20 }}>
+          <div className="t-statement" style={{ fontSize: 88, marginTop: 20, whiteSpace: 'normal', lineHeight: 1.05 }}>
             Los 3 puntos fuertes de este MCP
           </div>
           <div className="t-editorial" style={{ fontSize: 36, color: 'var(--ink-2)', marginTop: 14 }}>
